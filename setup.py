@@ -26,7 +26,11 @@ include_dirs = [
     "acor",
     numpy.get_include(),
 ]
+extra_compile_args = [
+    '-Wno-incompatible-pointer-types',
+]
 acor = Extension("acor._acor", ["acor/_acor.c", "acor/acor.c"],
+                 extra_compile_args=extra_compile_args,
                  include_dirs=include_dirs)
 
 
