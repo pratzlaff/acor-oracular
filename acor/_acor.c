@@ -57,7 +57,7 @@ static PyObject *acor_acor(PyObject *self, PyObject *args)
         return NULL;
 
     /* Get the data as a numpy array object */
-    data_array  = PyArray_FROM_OTF(data_obj, NPY_DOUBLE, NPY_IN_ARRAY);
+    data_array  = PyArray_FROM_OTF(data_obj, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY);
     if (data_array == NULL) {
         PyErr_SetString(PyExc_TypeError, "The input data must be a numpy.ndarray.");
         Py_XDECREF(data_array);
@@ -145,8 +145,8 @@ static PyObject *acor_function(PyObject *self, PyObject *args)
         return NULL;
 
     /* Get the data as a numpy array object */
-    data_array = PyArray_FROM_OTF(data_obj, NPY_DOUBLE, NPY_IN_ARRAY);
-    out_array = PyArray_FROM_OTF(out_obj, NPY_DOUBLE, NPY_OUT_ARRAY);
+    data_array = PyArray_FROM_OTF(data_obj, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY);
+    out_array = PyArray_FROM_OTF(out_obj, NPY_DOUBLE, NPY_ARRAY_OUT_ARRAY);
     if (data_array == NULL || out_array == NULL) {
         PyErr_SetString(PyExc_TypeError,
                 "The input data must be a numpy.ndarrays.");
